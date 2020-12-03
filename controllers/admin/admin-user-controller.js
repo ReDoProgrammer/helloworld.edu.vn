@@ -10,6 +10,7 @@ router.get('/init',(req,res)=>{
             user.username = 'root';
             user.password = 'root';
             user.fullname = 'Administrator';
+            user.is_admin = true;
             user.save()
             .then(admin=>{
                 console.log(admin);

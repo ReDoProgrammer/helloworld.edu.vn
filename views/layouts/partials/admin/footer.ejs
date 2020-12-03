@@ -1,0 +1,25 @@
+<div id="footer">
+  <h1>footer</h1>
+</div>
+
+<script>
+  $(document).ready((_) => {
+    checkAdminLogin();
+  });
+
+  function checkAdminLogin() {
+    $.ajax({
+      url: "/api/admin/user",
+      type: "get",
+      headers: {
+        authorization: "Bearer " + getCookie("accessToken"),
+      },
+      success: function (data, statusText, xhr) {
+
+      },
+      error:function(data,textStatus,errorThrown){
+          console.log('không phải admin');
+      }
+    });
+  }
+</script>

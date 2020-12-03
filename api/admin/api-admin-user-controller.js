@@ -25,6 +25,20 @@ router.get('/',authenticateAdminToken,(req,res)=>{
     });
 })
 
+router.get('/profile',authenticateAdminToken,(req,res)=>{
+    User.findById(req.user._id)
+    .select("fullname avatar is_admin")
+    .exec((err, user) => {
+      if (err) return res.sendStatus(404);
+      if (user == null) return res.sendStatus(403);
+      return res.status(200).json({
+        profile: user,
+        msg: "load profile successfully",
+      });
+    });
+})
+
+
 module.exports = router;
 
 

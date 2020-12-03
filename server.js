@@ -12,7 +12,9 @@ const adminApiUserController = require('./api/admin/api-admin-user-controller');
 
 
 //---------------->admin controllers
+
 const adminCategoryController = require('./controllers/admin/admin-category-controller');
+const adminHomeController = require('./controllers/admin/admin-home-controller');
 const adminUserController = require('./controllers/admin/admin-user-controller');
 
 const homeController = require('./controllers/home-controller');
@@ -47,8 +49,10 @@ app.use('/',homeController);
 
 
 //use admin controllers from back-end
+app.use('/admin',adminHomeController);
 app.use('/admin/category',adminCategoryController);
 app.use('/admin/user',adminUserController);
+
 
 //use api from back-end
 app.use('/api/admin/user',adminApiUserController);

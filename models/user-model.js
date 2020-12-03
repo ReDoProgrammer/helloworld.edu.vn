@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
         length:30,
         required:true
     },
+    is_admin:{
+        type:Boolean,
+        default:false
+    },
     dob:{
         type:Date
     },
